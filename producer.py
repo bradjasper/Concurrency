@@ -37,4 +37,3 @@ while amount != num:
     amount = int(db.get(test_name))
 
 print "Done in %f seconds" % (time.time() - start_time)
-
