@@ -1,0 +1,5 @@
+#-e git+git@github.com:bradjasper/kombu.git#egg=kombu
+#-e git+git@github.com:zeromq/pyzmq.git#egg=pyzmq
+-e git+git@github.com:bradjasper/carrot.git#egg=carrot
+-e git+http://github.com/andymccurdy/redis-py.git#egg=redis-py
+-e git+http://github.com/ask/ghettoq.git#egg=ghettoq

@@ -1,0 +1,48 @@
+Obtaining pyzmq from git+git@github.com:zeromq/pyzmq.git#egg=pyzmq (from -r requirements.txt (line 3))
+  Cloning git@github.com:zeromq/pyzmq.git to ./env/src/pyzmq
+  Found command git at /usr/local/git/bin/git
+  Running command /usr/local/git/bin/git clone -q git@github.com:zeromq/pyzmq.git /Users/bradjasper/Projects/concurrency/env/src/pyzmq
+  Complete output from command /usr/local/git/bin/git clone -q git@github.com:zeromq/pyzmq.git /Users/bradjasper/Projects/concurrency/env/src/pyzmq:
+  
+----------------------------------------
+Command /usr/local/git/bin/git clone -q git@github.com:zeromq/pyzmq.git /Users/bradjasper/Projects/concurrency/env/src/pyzmq failed with error code 128
+Exception information:
+Traceback (most recent call last):
+  File "/Users/bradjasper/Projects/concurrency/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/Users/bradjasper/Projects/concurrency/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/Users/bradjasper/Projects/concurrency/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 805, in install_files
+    req_to_install.update_editable(not self.is_download)
+  File "/Users/bradjasper/Projects/concurrency/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 356, in update_editable
+    vcs_backend.obtain(self.source_dir)
+  File "/Users/bradjasper/Projects/concurrency/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/vcs/git.py", line 104, in obtain
+    [self.cmd, 'clone', '-q', url, dest])
+  File "/Users/bradjasper/Projects/concurrency/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/__init__.py", line 207, in call_subprocess
+    % (command_desc, proc.returncode))
+InstallationError: Command /usr/local/git/bin/git clone -q git@github.com:zeromq/pyzmq.git /Users/bradjasper/Projects/concurrency/env/src/pyzmq failed with error code 128
+------------------------------------------------------------
+/Users/bradjasper/Projects/concurrency/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/runner.py run on Fri Jul 30 21:25:18 2010
+Obtaining pyzmq from git+git@github.com:zeromq/pyzmq.git#egg=pyzmq (from -r requirements.txt (line 3))
+  Cloning git@github.com:zeromq/pyzmq.git to ./env/src/pyzmq
+  Found command git at /usr/local/git/bin/git
+  Running command /usr/local/git/bin/git clone -q git@github.com:zeromq/pyzmq.git /Users/bradjasper/Projects/concurrency/env/src/pyzmq
+  Complete output from command /usr/local/git/bin/git clone -q git@github.com:zeromq/pyzmq.git /Users/bradjasper/Projects/concurrency/env/src/pyzmq:
+  
+----------------------------------------
+Command /usr/local/git/bin/git clone -q git@github.com:zeromq/pyzmq.git /Users/bradjasper/Projects/concurrency/env/src/pyzmq failed with error code 128
+Exception information:
+Traceback (most recent call last):
+  File "/Users/bradjasper/Projects/concurrency/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/Users/bradjasper/Projects/concurrency/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/Users/bradjasper/Projects/concurrency/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 805, in install_files
+    req_to_install.update_editable(not self.is_download)
+  File "/Users/bradjasper/Projects/concurrency/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 356, in update_editable
+    vcs_backend.obtain(self.source_dir)
+  File "/Users/bradjasper/Projects/concurrency/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/vcs/git.py", line 104, in obtain
+    [self.cmd, 'clone', '-q', url, dest])
+  File "/Users/bradjasper/Projects/concurrency/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/__init__.py", line 207, in call_subprocess
+    % (command_desc, proc.returncode))
+InstallationError: Command /usr/local/git/bin/git clone -q git@github.com:zeromq/pyzmq.git /Users/bradjasper/Projects/concurrency/env/src/pyzmq failed with error code 128
