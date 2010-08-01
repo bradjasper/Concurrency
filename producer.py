@@ -4,19 +4,19 @@ import json
 
 import redis
 
-db = redis.Redis(port=6378)
-num = 150
+db = redis.Redis()
+num = 10
 
 test_name = "concurrency_test_%d" % db.incr("concurrency_num_tests")
 urls = [
-    "http://www.rentacarnow.com/",
-    "http://www.google.com",
-    "http://www.yahoo.com",
-    "http://www.msn.com",
-    "http://www.nytimes.com",
-    "http://news.google.com",
-    "http://microsoft.com",
-    "http://amazon.com"
+    "www.rentacarnow.com",
+    "www.google.com",
+    "www.yahoo.com",
+    "www.msn.com",
+    "www.nytimes.com",
+    "news.google.com",
+    "microsoft.com",
+    "amazon.com"
 ]
 
 print "Running test %s at %d messages" % (test_name, num)

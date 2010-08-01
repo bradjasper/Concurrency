@@ -4,9 +4,9 @@ import urllib
 
 import multiprocessing 
 
-NUM_CONSUMERS = 25
+NUM_CONSUMERS = 10
 
-db = redis.Redis(port=6378)
+db = redis.Redis()
 
 def consume():
     print "consuming..."
@@ -18,7 +18,7 @@ def consume():
         test_name = data["test_name"]
 
         url = urllib.urlopen(download_url)
-        print url.read()
+        contents = url.read()
         db.set("download_url", download_url)
 
         db.incr(test_name)
