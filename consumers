@@ -1,0 +1,48 @@
+#!/bin/bash
+
+if [[ "$(HOSTNAME)" =~ "local" ]]; then
+    PWD=/Users/bradjasper/Projects/concurrency
+else
+    echo "Unknown host"
+    exit 1;
+fi
+
+if [ -d $PWD/env ]; then
+    source $PWD/env/bin/activate
+fi
+
+NUM_CONSUMERS=5
+CONSUMER_EXEC="python redis_consumer.py"
+
+function start_consumers {
+    for ((i=1; i <= $NUM_CONSUMERS ; i++))
+    do
+        echo "Starting consumer #$i"
+        screen -dmS "consumer$i" $CONSUMER_EXEC
+    done
+    list_consumers
+}
+
+function stop_consumers {
+    kill -9 `ps -ef|list_consumers|grep -v grep|awk '{print $2}'`;
+}
+
+function list_consumers {
+    ps aux | grep "SCREEN" | grep "redis_consumer"
+}
+
+case $1 in
+    'start')
+        start_consumers;;
+    'stop')
+        stop_consumers;;
+    'restart')
+        stop_consumers
+        start_consumers;;
+    'info')
+        list_consumers;;
+esac
+
+exit 0;
+
+
