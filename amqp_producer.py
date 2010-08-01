@@ -1,35 +1,33 @@
 import time
-import random
-import json
+
+from carrot.connection import BrokerConnection
+from carrot.messaging import Publisher
 
 import redis
 
 db = redis.Redis()
-num = 500
+conn = BrokerConnection(hostname="localhost", port=5672,
+                         userid="guest", password="guest",
+                         virtual_host="/")
+publisher = Publisher(connection=conn,
+                      exchange="feed", routing_key="importer")
+num = 10000
 
 test_name = "concurrency_test_%d" % db.incr("concurrency_num_tests")
-urls = [
-    "http://www.rentacarnow.com/",
-    "http://www.google.com",
-    "http://www.yahoo.com",
-    "http://www.msn.com",
-    "http://www.nytimes.com",
-    "http://news.google.com",
-    "http://microsoft.com",
-    "http://amazon.com"
-]
 
 print "Running test %s at %d messages" % (test_name, num)
 
 start_time = time.time()
 
 for i in xrange(num):
-    db.lpush("redis_queue", json.dumps({
-        "download_url": random.choice(urls),
+    publisher.send({
+        "download_url": "http://cnn.com/rss/edition.rss",
         "rate_id": "243234-234234234-234234234234-234234234234",
         "search_id": "234234234-234234234234-234234234-234234234",
         "test_name": test_name,
-        "vendor": "hertz"}))
+        "vendor": "hertz"})
+
+publisher.close()
 
 print "Done publishing in %f seconds" % (time.time() - start_time)
 
