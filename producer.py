@@ -33,11 +33,11 @@ for i in xrange(num):
 
 print "Done publishing in %f seconds" % (time.time() - start_time)
 
-# Wait until all the results have been published
-amount = 0
-while amount != num:
-    amount = int(db.get(test_name) or 0)
-    print amount, num
+# Wait until 95% of results are done
+percentage = 0
+while percentage <= .95:
+    percentage = float(db.get(test_name) or 0) / num
+    print "Completed %.2f%%..." % percentage
     time.sleep(.5)
 
 print "Done in %f seconds" % (time.time() - start_time)
