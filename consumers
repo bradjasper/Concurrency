@@ -11,7 +11,7 @@ if [ -d $PWD/env ]; then
     source $PWD/env/bin/activate
 fi
 
-NUM_CONSUMERS=5
+NUM_CONSUMERS=40
 CONSUMER_EXEC="python redis_consumer.py"
 
 function start_consumers {
@@ -25,6 +25,8 @@ function start_consumers {
 
 function stop_consumers {
     kill -9 `ps -ef|list_consumers|grep -v grep|awk '{print $2}'`;
+    screen -wipe
+    list_consumers
 }
 
 function list_consumers {
@@ -41,6 +43,9 @@ case $1 in
         start_consumers;;
     'info')
         list_consumers;;
+    *)
+        echo "Unknown command $1"
+        exit 1;;
 esac
 
 exit 0;
