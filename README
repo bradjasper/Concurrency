@@ -1,7 +1,1 @@
 Simple tests in concurrency to find out the fastest ways to perform HTTP requests
-
-Rules
-====================================
-- Must use POST, should be submitting something--like /search/
-- Must be using SSL
-- Should see single machine tests, 2 machines, 3 machines, etc..
