@@ -4,7 +4,7 @@ import json
 
 import redis
 
-db = redis.Redis()
+db = redis.Redis(port=6378)
 num = 150
 
 test_name = "concurrency_test_%d" % db.incr("concurrency_num_tests")
@@ -35,9 +35,9 @@ print "Done publishing in %f seconds" % (time.time() - start_time)
 
 # Wait until 95% of results are done
 percentage = 0
-while percentage <= .95:
-    percentage = float(db.get(test_name) or 0) / num
-    print "Completed %.2f%%..." % percentage
+while percentage < 90:
+    percentage = 100 * int(db.get(test_name) or 0) / num
+    print "Completed %d%%..." % percentage
     time.sleep(.5)
 
 print "Done in %f seconds" % (time.time() - start_time)

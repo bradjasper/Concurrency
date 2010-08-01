@@ -4,9 +4,9 @@ import urllib
 
 import multiprocessing 
 
-NUM_CONSUMERS = 10
+NUM_CONSUMERS = 25
 
-db = redis.Redis()
+db = redis.Redis(port=6378)
 
 def consume():
     print "consuming..."
