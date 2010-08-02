@@ -5,7 +5,7 @@ import json
 import redis
 
 db = redis.Redis()
-num = 10
+num = 150
 
 test_name = "concurrency_test_%d" % db.incr("concurrency_num_tests")
 urls = [
