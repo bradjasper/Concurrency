@@ -1,10 +1,11 @@
+import time
 import redis
 import json 
 import urllib
 
 import multiprocessing 
 
-NUM_CONSUMERS = 10
+NUM_CONSUMERS = 50
 
 db = redis.Redis()
 
@@ -17,11 +18,14 @@ def consume():
         download_url = data["download_url"]
         test_name = data["test_name"]
 
+        print "downloading"
         url = urllib.urlopen(download_url)
         contents = url.read()
-        db.set("download_url", download_url)
+        print "downloaded"
 
         db.incr(test_name)
+
+        time.sleep(0.1)
 
 
 for i in xrange(NUM_CONSUMERS):
