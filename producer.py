@@ -39,7 +39,7 @@ for num in nums:
     old_percentage = 0
     while percentage < 80:
         percentage = 100 * int(db.get(test_name) or 0) / num
-        if old_percantage != percentage:
+        if old_percentage != percentage:
             print "Completed %d%%..." % percentage
             percentage = old_percantage
         time.sleep(.01)
