@@ -1,12 +1,18 @@
 import time
 import random
 import json
+import sys
 
 import redis
 
 db = redis.Redis()
 
-for num in [150, 150, 300, 300]:
+nums = map(int, sys.argv[1::])
+assert nums, "No nums"
+
+total_times = []
+
+for num in nums:
 
     test_name = "concurrency_test_%d" % db.incr("concurrency_num_tests")
     urls = [
@@ -35,4 +41,10 @@ for num in [150, 150, 300, 300]:
         print "Completed %d%%..." % percentage
         time.sleep(.5)
 
-    print "Done in %f seconds" % (time.time() - start_time)
+    total_time = time.time() - start_time
+    total_times.append(total_time)
+    print "Done in %f seconds" % total_time
+
+for num, total_time in zip(nums, total_times):
+    print "Processed %d messages in %f seconds" % (num, total_time)
+print "Average: %f seconds" % (sum(total_times) / len(total_times))

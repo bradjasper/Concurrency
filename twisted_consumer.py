@@ -5,7 +5,7 @@ from twisted.internet import reactor
 from twisted.internet import protocol
 from twisted.internet import defer
 
-from twisted.web.client import getPage
+from twisted.web import client
 from txredis.protocol import Redis
 
 
@@ -30,10 +30,11 @@ def main():
             def handle_error(error):
                 print "ERROR", error
 
-            getPage(str(data["download_url"])).addCallbacks(callback=handle_response,
-                    errback=handle_error)
+            client.getPage(str(data["download_url"])).addCallbacks(
+                callback=handle_response,
+                errback=handle_error)
 
 
 if __name__ == "__main__":
-    main()
+    reactor.callWhenRunning(main)
     reactor.run()
