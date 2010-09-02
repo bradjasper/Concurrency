@@ -41,7 +41,7 @@ for num in nums:
         percentage = 100 * int(db.get(test_name) or 0) / num
         if old_percentage != percentage:
             print "Completed %d%%..." % percentage
-            percentage = old_percantage
+            percentage = old_percentage
         time.sleep(.01)
 
     total_time = time.time() - start_time
