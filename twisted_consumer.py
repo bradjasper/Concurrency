@@ -13,7 +13,7 @@ from txredis.protocol import Redis
 def main():
 
     clientCreator = protocol.ClientCreator(reactor, Redis)
-    redis = yield clientCreator.connectTCP("localhost", 6379)
+    redis = yield clientCreator.connectTCP("184.72.238.148", 6379)
 
     while True:
         msg = yield redis.pop("redis_queue")

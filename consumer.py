@@ -7,7 +7,7 @@ import multiprocessing
 
 NUM_CONSUMERS = 50
 
-db = redis.Redis()
+db = redis.Redis(host="184.72.238.148")
 
 def consume():
     print "consuming..."
