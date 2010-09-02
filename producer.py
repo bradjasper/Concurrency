@@ -36,10 +36,13 @@ for num in nums:
 
     # Wait until 95% of results are done
     percentage = 0
+    old_percentage = 0
     while percentage < 80:
         percentage = 100 * int(db.get(test_name) or 0) / num
-        print "Completed %d%%..." % percentage
-        time.sleep(.5)
+        if old_percantage != percentage:
+            print "Completed %d%%..." % percentage
+            percentage = old_percantage
+        time.sleep(.01)
 
     total_time = time.time() - start_time
     total_times.append(total_time)
