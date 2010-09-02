@@ -1,6 +1,6 @@
 import time
 import random
-import json
+import simplejson as json
 import sys
 
 import redis

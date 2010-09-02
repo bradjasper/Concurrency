@@ -1,5 +1,5 @@
 import time
-import json
+import simplejson as json
 
 from twisted.internet import reactor
 from twisted.internet import protocol
